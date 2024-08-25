@@ -84,10 +84,10 @@ const styles = StyleSheet.create({
     width: "7.33%",
     alignItems: "center",
     marginBottom: 10,
-    marginHorizontal: 4, // Add this line for horizontal spacing
-    borderWidth: 1, // Add this line
-    borderColor: "#003366", // Dark blue color
-    borderRadius: 5, // Optional: to give rounded corners
+    marginHorizontal: 4,
+    borderWidth: 1,
+    borderColor: "#003366",
+    borderRadius: 5,
   },
   icon: {
     width: 50,
