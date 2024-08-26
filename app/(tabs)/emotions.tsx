@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import {
   View,
   Text,
@@ -7,6 +7,9 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
+import * as Speech from "expo-speech";
+import { useNavigation, NavigationProp } from "@react-navigation/native";
+import { TabParamList } from "@/app/(tabs)/_layout";
 
 const emotions = [
   {
@@ -152,11 +155,23 @@ const emotions = [
 ];
 
 const EmotionsScreen = () => {
+  const navigator = useNavigation<NavigationProp<TabParamList>>();
+
+  const [sentence, setSentence] = useState("");
+
+  const handlePress = (emotionName: string) => {
+    setSentence((prev) => (prev ? `${prev} ${emotionName}` : emotionName));
+
+    Speech.speak(emotionName);
+  };
+
   return (
     <View style={styles.container}>
       {/* Text Area */}
       <View style={styles.topArea}>
-        <Text style={styles.placeholderText}>Text here</Text>
+        <Text style={styles.placeholderText}>
+          {sentence || "Start speaking...."}
+        </Text>
       </View>
 
       {/* Blue Bar with Buttons */}
@@ -164,8 +179,11 @@ const EmotionsScreen = () => {
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Vocab</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Menu</Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigator.navigate("Home")}
+        >
+          <Text style={styles.buttonText}>Back to Home</Text>
         </TouchableOpacity>
       </View>
 
@@ -176,10 +194,10 @@ const EmotionsScreen = () => {
           return (
             <View key={index} style={styles.gridItem}>
               {index % 2 === 0 && emotion ? (
-                <>
+                <TouchableOpacity onPress={() => handlePress(emotion.name)}>
                   <Image source={{ uri: emotion.url }} style={styles.icon} />
                   <Text style={styles.iconText}>{emotion.name}</Text>
-                </>
+                </TouchableOpacity>
               ) : (
                 <Image
                   source={{
@@ -223,6 +241,9 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 10,
+    borderColor: "#fff",
+    borderWidth: 1,
+    borderRadius: 10,
   },
   buttonText: {
     color: "#fff",

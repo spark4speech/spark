@@ -27,6 +27,7 @@ export default function TabNavigator() {
               color={color}
             />
           ),
+          tabBarStyle: { display: "none" },
         }}
       />
       <Tab.Screen
@@ -39,6 +40,7 @@ export default function TabNavigator() {
               color={color}
             />
           ),
+          tabBarStyle: { display: "none" },
         }}
       />
       <Tab.Screen
@@ -51,6 +53,7 @@ export default function TabNavigator() {
               color={color}
             />
           ),
+          tabBarStyle: { display: "none" },
         }}
       />
     </Tab.Navigator>
