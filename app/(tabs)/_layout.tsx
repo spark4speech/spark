@@ -1,24 +1,26 @@
-import { Tabs } from "expo-router";
-import React from "react";
-
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
-import { Colors } from "@/constants/Colors";
-import { useColorScheme } from "@/hooks/useColorScheme";
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+// Pages
+import HomeScreen from "./index";
+import SettingsScreen from "./settings";
+import EmotionsScreen from "./emotions";
 
+type TabParamList = {
+  Home: undefined;
+  Settings: undefined;
+  Emotions: undefined;
+};
+
+const Tab = createBottomTabNavigator<TabParamList>();
+
+export default function TabNavigator() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-        headerShown: false,
-      }}
-    >
-      <Tabs.Screen
-        name="index"
+    <Tab.Navigator>
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
         options={{
-          title: "Home",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "home" : "home-outline"}
@@ -27,10 +29,22 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen
-        name="settings"
+      <Tab.Screen
+        name="Emotions"
+        component={EmotionsScreen}
         options={{
-          title: "Settings",
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "happy" : "happy-outline"}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "settings" : "settings-outline"}
@@ -39,6 +53,8 @@ export default function TabLayout() {
           ),
         }}
       />
-    </Tabs>
+    </Tab.Navigator>
   );
 }
+
+export { TabParamList };

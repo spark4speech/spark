@@ -7,11 +7,19 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
+import { useNavigation, NavigationProp } from "@react-navigation/native";
+import { TabParamList } from "@/app/(tabs)/_layout";
 
 const ICON_URL =
   "https://static.vecteezy.com/system/resources/previews/000/365/820/original/question-mark-vector-icon.jpg";
 
 const IndexScreen = () => {
+  const navigation = useNavigation<NavigationProp<TabParamList>>();
+
+  const handlePress = () => {
+    navigation.navigate("Emotions");
+  };
+
   return (
     <View style={styles.container}>
       {/* Text Area */}
@@ -31,10 +39,20 @@ const IndexScreen = () => {
 
       {/* Grid of Icons */}
       <ScrollView contentContainerStyle={styles.gridContainer}>
-        {Array.from({ length: 72 }).map((_, index) => (
+        <TouchableOpacity style={styles.gridItem} onPress={handlePress}>
+          <Image
+            source={{
+              uri: "https://cloud-68ucrctoz-hack-club-bot.vercel.app/0smiling-face-with-smiling-eyes_1f60a.png",
+            }}
+            style={styles.icon}
+          />
+          <Text style={styles.iconText}>Emotions</Text>
+        </TouchableOpacity>
+
+        {Array.from({ length: 71 }).map((_, index) => (
           <View key={index} style={styles.gridItem}>
             <Image source={{ uri: ICON_URL }} style={styles.icon} />
-            <Text style={styles.iconText}>Word #{index + 1}</Text>
+            <Text style={styles.iconText}>Word #{index + 2}</Text>
           </View>
         ))}
       </ScrollView>
