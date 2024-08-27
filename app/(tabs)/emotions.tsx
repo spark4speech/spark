@@ -193,7 +193,12 @@ const EmotionsScreen = () => {
           const emotion = emotions[Math.floor(index / 2)];
           return (
             <View key={index} style={styles.gridItem}>
-              {index % 2 === 0 && emotion ? (
+              {index % 2 === 0 && index % 24 < 12 && emotion ? (
+                <TouchableOpacity onPress={() => handlePress(emotion.name)}>
+                  <Image source={{ uri: emotion.url }} style={styles.icon} />
+                  <Text style={styles.iconText}>{emotion.name}</Text>
+                </TouchableOpacity>
+              ) : index % 2 === 1 && index % 24 > 11 && emotion ? (
                 <TouchableOpacity onPress={() => handlePress(emotion.name)}>
                   <Image source={{ uri: emotion.url }} style={styles.icon} />
                   <Text style={styles.iconText}>{emotion.name}</Text>
