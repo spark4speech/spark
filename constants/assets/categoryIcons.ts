@@ -15,4 +15,6 @@ export const icons: Icons = {
   Weather: require("@/assets/imgs/weather/sunny.png"),
   Body: require("@/assets/imgs/body/body.png"),
   Hobbies: require("@/assets/imgs/hobbies/reading.png"),
+  Holidays: require("@/assets/imgs/holidays/holiday.png"),
+  Animals: require("@/assets/imgs/animals/pet/dog.png"),
 };

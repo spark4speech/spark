@@ -16,6 +16,19 @@ import TransportationScreen from "./transportation";
 import WeatherScreen from "./weather";
 import BodyScreen from "./body";
 import HobbiesScreen from "./hobbies";
+import HolidaysScreen from "./holidays";
+import AnimalsScreen from "./animals";
+import BirdScreen from "./bird";
+import BugScreen from "./bug";
+import FarmScreen from "./farm";
+import ForestScreen from "./forest";
+import JungleScreen from "./jungle";
+import MythologicalScreen from "./mythological";
+import WaterScreen from "./ocean-water";
+import OtherScreen from "./other";
+import PetScreen from "./pet";
+import PrehistoricScreen from "./prehistoric";
+import ReptileScreen from "./reptile-amphibian";
 
 type TabParamList = {
   Home: undefined;
@@ -32,6 +45,19 @@ type TabParamList = {
   Weather: undefined;
   Body: undefined;
   Hobbies: undefined;
+  Holidays: undefined;
+  Animals: undefined;
+  Bird: undefined;
+  Bug: undefined;
+  Farm: undefined;
+  Forest: undefined;
+  Jungle: undefined;
+  Mythological: undefined;
+  Water: undefined;
+  Other: undefined;
+  Pet: undefined;
+  Prehistoric: undefined;
+  Reptile: undefined;
 };
 
 type FoodParamList = {
@@ -39,6 +65,20 @@ type FoodParamList = {
   Vegetable: undefined;
   Dessert: undefined;
 };
+
+type AnimalsParamList = {
+  Bird: undefined;
+  Bug: undefined;
+  Farm: undefined;
+  Forest: undefined;
+  Jungle: undefined;
+  Mythological: undefined;
+  Water: undefined;
+  Other: undefined;
+  Pet: undefined;
+  Prehistoric: undefined;
+  Reptile: undefined;
+}
 
 const TabParamListValues = [
   "Home",
@@ -51,8 +91,10 @@ const TabParamListValues = [
   "Weather",
   "Body",
   "Hobbies",
+  "Holidays",
 ];
 const FoodParamListValues = ["Fruit", "Vegetable", "Dessert"];
+const AnimalsParamListValues = ["Bird", "Bug", "Farm", "Forest", "Jungle", "Mythological", "Water", "Other", "Pet", "Prehistoric", "Reptile"];
 
 const Tab = createBottomTabNavigator<TabParamList>();
 
@@ -229,6 +271,175 @@ export default function TabNavigator() {
         }}
       />
       <Tab.Screen
+        name="Holidays"
+        component={HolidaysScreen}
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "happy" : "happy-outline"}
+              color={color}
+            />
+          ),
+          tabBarStyle: { display: "none" },
+        }}
+      />
+      <Tab.Screen
+        name="Animals"
+        component={AnimalsScreen}
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "happy" : "happy-outline"}
+              color={color}
+            />
+          ),
+          tabBarStyle: { display: "none" },
+        }}
+      />
+      <Tab.Screen
+        name="Bird"
+        component={BirdScreen}
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "happy" : "happy-outline"}
+              color={color}
+            />
+          ),
+          tabBarStyle: { display: "none" },
+        }}
+      />
+      <Tab.Screen
+        name="Bug"
+        component={BugScreen}
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "happy" : "happy-outline"}
+              color={color}
+            />
+          ),
+          tabBarStyle: { display: "none" },
+        }}
+      />
+      <Tab.Screen
+        name="Farm"
+        component={FarmScreen}
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "happy" : "happy-outline"}
+              color={color}
+            />
+          ),
+          tabBarStyle: { display: "none" },
+        }}
+      />
+      <Tab.Screen
+        name="Forest"
+        component={ForestScreen}
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "happy" : "happy-outline"}
+              color={color}
+            />
+          ),
+          tabBarStyle: { display: "none" },
+        }}
+      />
+      <Tab.Screen
+        name="Jungle"
+        component={JungleScreen}
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "happy" : "happy-outline"}
+              color={color}
+            />
+          ),
+          tabBarStyle: { display: "none" },
+        }}
+      />
+      <Tab.Screen
+        name="Mythological"
+        component={MythologicalScreen}
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "happy" : "happy-outline"}
+              color={color}
+            />
+          ),
+          tabBarStyle: { display: "none" },
+        }}
+      />
+      <Tab.Screen
+        name="Water"
+        component={WaterScreen}
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "happy" : "happy-outline"}
+              color={color}
+            />
+          ),
+          tabBarStyle: { display: "none" },
+        }}
+      />
+      <Tab.Screen
+        name="Pet"
+        component={PetScreen}
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "happy" : "happy-outline"}
+              color={color}
+            />
+          ),
+          tabBarStyle: { display: "none" },
+        }}
+      />
+      <Tab.Screen
+        name="Prehistoric"
+        component={PrehistoricScreen}
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "happy" : "happy-outline"}
+              color={color}
+            />
+          ),
+          tabBarStyle: { display: "none" },
+        }}
+      />
+      <Tab.Screen
+        name="Reptile"
+        component={ReptileScreen}
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "happy" : "happy-outline"}
+              color={color}
+            />
+          ),
+          tabBarStyle: { display: "none" },
+        }}
+      />
+      <Tab.Screen
+        name="Other"
+        component={OtherScreen}
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "happy" : "happy-outline"}
+              color={color}
+            />
+          ),
+          tabBarStyle: { display: "none" },
+        }}
+      />
+      <Tab.Screen
         name="Settings"
         component={SettingsScreen}
         options={{
@@ -245,4 +456,4 @@ export default function TabNavigator() {
   );
 }
 
-export { TabParamList, TabParamListValues, FoodParamList, FoodParamListValues };
+export { TabParamList, TabParamListValues, FoodParamList, FoodParamListValues, AnimalsParamList, AnimalsParamListValues };
